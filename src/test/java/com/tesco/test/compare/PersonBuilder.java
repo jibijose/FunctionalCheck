@@ -34,6 +34,17 @@ public class PersonBuilder {
     return rosterAsArray;
   }
 
+  public Person[] constructPersonsSortedByName() {
+    Person[] rosterAsArray = new Person[5];
+    rosterAsArray[0] = constructPerson(1);
+    rosterAsArray[1] = constructPerson(2);
+    rosterAsArray[2] = constructPerson(3);
+    rosterAsArray[3] = constructPerson(4);
+    rosterAsArray[4] = constructPerson(5);
+
+    return rosterAsArray;
+  }
+
   public Person[] constructPersonsSortedByAge() {
     Person[] rosterAsArray = new Person[5];
     rosterAsArray[0] = constructPerson(1);
@@ -44,4 +55,5 @@ public class PersonBuilder {
 
     return rosterAsArray;
   }
+
 }
