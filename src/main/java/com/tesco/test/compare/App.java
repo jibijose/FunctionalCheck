@@ -2,23 +2,24 @@ package com.tesco.test.compare;
 
 import java.util.Arrays;
 
-public class App {
+import com.tesco.test.compare.objectoriented.PersonAgeComparator;
 
-  private static String FIXMODE = "Auto";
+public class App {
 
   public static void main(String[] args) {
     App app = new App();
-    app.invoke();
+    app.invokeObjectOrientedClassWay();
   }
 
-  private void invoke() {
-    
-    
-    ComparisonProvider myComparisonProvider = new ComparisonProvider();
-    Arrays.sort(stringArray, myComparisonProvider::compareByName);
-    
-    String[] stringArray =
-      {"Barbara", "James", "Mary", "John", "Patricia", "Robert", "Michael", "Linda"};
-    Arrays.sort(stringArray, String::compareToIgnoreCase);
+  private void invokeObjectOrientedClassWay() {
+    System.out.println("************************************ invokeObjectOrientedClassWay *********************************************");
+    Person[] rosterAsArray = null;
+    Arrays.sort(rosterAsArray, new PersonAgeComparator());
+    System.out.println(Arrays.toString(rosterAsArray));
+    System.out.println("*****************************************************************************************");
+    Arrays.sort(rosterAsArray, new PersonAgeComparator());
+    System.out.println(Arrays.toString(rosterAsArray));
   }
+  
+  
 }

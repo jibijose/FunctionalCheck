@@ -1,9 +1,24 @@
 package com.tesco.test.compare;
 
+import java.time.LocalDate;
+
 public class Person {
 
-  private String name;
-  private String birthday;
+  public Person(String name, LocalDate birthday, Sex gender, String emailAddress) {
+    this.name = name;
+    this.birthday = birthday;
+    this.gender = gender;
+    this.emailAddress = emailAddress;
+  }
+
+  public enum Sex {
+    MALE, FEMALE
+  }
+
+  String name;
+  LocalDate birthday;
+  Sex gender;
+  String emailAddress;
 
   public String getName() {
     return name;
@@ -13,11 +28,42 @@ public class Person {
     this.name = name;
   }
 
-  public String getBirthday() {
+  public LocalDate getBirthday() {
     return birthday;
   }
 
-  public void setBirthday(String birthday) {
+  public void setBirthday(LocalDate birthday) {
     this.birthday = birthday;
+  }
+
+  public Sex getGender() {
+    return gender;
+  }
+
+  public void setGender(Sex gender) {
+    this.gender = gender;
+  }
+
+  public String getEmailAddress() {
+    return emailAddress;
+  }
+
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+  }
+  /************************************************************************************************/
+  @Override
+  public String toString() {
+    return "Person [name=" + name + ", birthday=" + birthday + ", gender=" + gender
+        + ", emailAddress=" + emailAddress + "]";
+  }
+  /************************************************************************************************/
+
+  public int compareByName(Person a, Person b) {
+    return a.getName().compareTo(b.getName());
+  }
+
+  public int compareByAge(Person a, Person b) {
+    return a.getBirthday().compareTo(b.getBirthday());
   }
 }

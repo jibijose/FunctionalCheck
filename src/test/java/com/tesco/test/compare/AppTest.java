@@ -1,4 +1,4 @@
-package com.tesco.test.FunctionalCheck;
+package com.tesco.test.compare;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
