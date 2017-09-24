@@ -1,4 +1,4 @@
-package com.tesco.test.compare.objectoriented;
+package com.tesco.test.compare.functionallambda;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -16,13 +16,11 @@ import com.tesco.test.compare.PersonBuilder;
 public class PersonNameComparatorTest {
 
   PersonBuilder personBuilder;
-  PersonNameComparator personNameComparator;
   Person[] personArray;
 
   @Before
   public void beforeEachTest() {
     personBuilder = new PersonBuilder();
-    personNameComparator = new PersonNameComparator();
     personArray = personBuilder.constructPersonsRandom();
   }
 
@@ -30,7 +28,9 @@ public class PersonNameComparatorTest {
   public void checkComparePersons() {
     Person[] persons = personBuilder.constructPersonsRandom();
 
-    Arrays.sort(persons, personNameComparator);
+    Arrays.sort(persons, (Person a, Person b) -> {
+      return a.getName().compareTo(b.getName());
+    });
 
     Person[] personsSortedByName = personBuilder.constructPersonsSortedByName();
     assertArrayEquals("Should Array compare by age", personsSortedByName, persons);

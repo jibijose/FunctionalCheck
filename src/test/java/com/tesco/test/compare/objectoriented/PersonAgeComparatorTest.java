@@ -1,6 +1,5 @@
 package com.tesco.test.compare.objectoriented;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
 
 import java.util.Arrays;
@@ -25,15 +24,6 @@ public class PersonAgeComparatorTest {
     personBuilder = new PersonBuilder();
     personAgeComparator = new PersonAgeComparator();
     personArray = personBuilder.constructPersonsRandom();
-  }
-
-  @Test
-  public void checkComparePerson() {
-    Person person1 = personBuilder.constructPerson1();
-    Person person2 = personBuilder.constructPerson2();
-    int resultComparision = personAgeComparator.compare(person1, person2);
-
-    assertEquals("Should compare by age", -1, resultComparision);
   }
 
   @Test
