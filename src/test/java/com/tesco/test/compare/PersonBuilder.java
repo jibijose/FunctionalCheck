@@ -5,24 +5,45 @@ import java.time.LocalDate;
 import com.tesco.test.compare.Person.Sex;
 
 public class PersonBuilder {
+  
+  private static LocalDate DATENOW = LocalDate.now();
+
+  public Person constructPerson(int marker) {
+    return constructPerson(marker, marker, marker);
+  }
+
+  public Person constructPerson(int nameMarker, int ageMarker, int emailMarker) {
+    return new Person("name" + nameMarker, DATENOW.plusYears(ageMarker), Sex.MALE,
+        "email" + emailMarker + "@email.com");
+  }
 
   public Person constructPerson1() {
-    return new Person("name1", LocalDate.now().plusYears(1), Sex.MALE, "email1@email.com");
-  }
-  
-  public Person constructPerson2() {
-    return new Person("name2", LocalDate.now().plusYears(2), Sex.FEMALE, "email2@email.com");
+    return constructPerson(1);
   }
 
-  public Person[] constructPersons() {
-    
+  public Person constructPerson2() {
+    return constructPerson(2);
+  }
+
+  public Person[] constructPersonsRandom() {
     Person[] rosterAsArray = new Person[5];
-    rosterAsArray[0] = new Person("name3", LocalDate.now().plusYears(3), Sex.MALE, "email3@email.com");
-    rosterAsArray[1] = new Person("name1", LocalDate.now().plusYears(1), Sex.MALE, "email1@email.com");
-    rosterAsArray[2] = new Person("name2", LocalDate.now().plusYears(2), Sex.FEMALE, "email2@email.com");
-    rosterAsArray[3] = new Person("name5", LocalDate.now().plusYears(5), Sex.MALE, "email5@email.com");
-    rosterAsArray[4] = new Person("name4", LocalDate.now().plusYears(4), Sex.FEMALE, "email4@email.com");
-    
+    rosterAsArray[0] = constructPerson(3);
+    rosterAsArray[1] = constructPerson(1);
+    rosterAsArray[2] = constructPerson(2);
+    rosterAsArray[3] = constructPerson(5);
+    rosterAsArray[4] = constructPerson(4);
+
+    return rosterAsArray;
+  }
+
+  public Person[] constructPersonsSortedByAge() {
+    Person[] rosterAsArray = new Person[5];
+    rosterAsArray[0] = constructPerson(1);
+    rosterAsArray[1] = constructPerson(2);
+    rosterAsArray[2] = constructPerson(3);
+    rosterAsArray[3] = constructPerson(4);
+    rosterAsArray[4] = constructPerson(5);
+
     return rosterAsArray;
   }
 }
