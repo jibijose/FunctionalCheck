@@ -32,6 +32,10 @@ public class PersonNameComparatorTest {
       return a.getName().compareTo(b.getName());
     });
 
+    Arrays.sort(persons, (Person a, Person b) -> {
+      return Person.compareByName(a, b);
+    });
+
     Person[] personsSortedByName = personBuilder.constructPersonsSortedByName();
     assertArrayEquals("Should Array compare by age", personsSortedByName, persons);
   }
