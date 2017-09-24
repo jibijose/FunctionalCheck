@@ -32,10 +32,6 @@ public class PersonAgeComparatorTest {
       return a.getBirthday().compareTo(b.getBirthday());
     });
 
-    Arrays.sort(persons, (Person a, Person b) -> {
-      return Person.compareByAge(a, b);
-    });
-
     Person[] personsSortedByAge = personBuilder.constructPersonsSortedByAge();
     assertArrayEquals("Should Array compare by age", personsSortedByAge, persons);
   }

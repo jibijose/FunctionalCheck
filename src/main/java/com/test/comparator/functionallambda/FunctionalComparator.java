@@ -1,5 +1,10 @@
 package com.test.comparator.functionallambda;
 
-public class FunctionalComparator {
+import com.test.comparator.Person;
+
+@FunctionalInterface
+public interface FunctionalComparator {
+
+  boolean compare(Person a, Person b);
 
 }

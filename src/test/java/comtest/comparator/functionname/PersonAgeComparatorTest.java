@@ -27,6 +27,10 @@ public class PersonAgeComparatorTest {
   @Test
   public void checkComparePersons() {
     Person[] persons = personBuilder.constructPersonsRandom();
+    
+    Arrays.sort(persons, (Person a, Person b) -> {
+      return Person.compareByAge(a, b);
+    });
 
     Arrays.sort(persons, Person::compareByAge);
 

@@ -28,6 +28,10 @@ public class PersonNameComparatorTest {
   public void checkComparePersons() {
     Person[] persons = personBuilder.constructPersonsRandom();
 
+    Arrays.sort(persons, (Person a, Person b) -> {
+      return Person.compareByName(a, b);
+    });
+    
     Arrays.sort(persons, Person::compareByName);
 
     Person[] personsSortedByName = personBuilder.constructPersonsSortedByName();
