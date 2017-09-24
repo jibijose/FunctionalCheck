@@ -1,23 +1,22 @@
 package com.tesco.test.compare;
 
+import static java.util.Objects.hash;
+
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Person {
 
-  public Person(String name, LocalDate birthday, Sex gender, String emailAddress) {
+  public Person(String name, LocalDate birthday, Gender gender, String emailAddress) {
     this.name = name;
     this.birthday = birthday;
     this.gender = gender;
     this.emailAddress = emailAddress;
   }
 
-  public enum Sex {
-    MALE, FEMALE
-  }
-
   String name;
   LocalDate birthday;
-  Sex gender;
+  Gender gender;
   String emailAddress;
 
   public String getName() {
@@ -36,11 +35,11 @@ public class Person {
     this.birthday = birthday;
   }
 
-  public Sex getGender() {
+  public Gender getGender() {
     return gender;
   }
 
-  public void setGender(Sex gender) {
+  public void setGender(Gender gender) {
     this.gender = gender;
   }
 
@@ -51,22 +50,17 @@ public class Person {
   public void setEmailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
   }
+
   /************************************************************************************************/
   @Override
   public String toString() {
     return "Person [name=" + name + ", birthday=" + birthday + ", gender=" + gender
         + ", emailAddress=" + emailAddress + "]";
   }
-  
+
   @Override
   public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
-    result = prime * result + ((emailAddress == null) ? 0 : emailAddress.hashCode());
-    result = prime * result + ((gender == null) ? 0 : gender.hashCode());
-    result = prime * result + ((name == null) ? 0 : name.hashCode());
-    return result;
+    return hash(name, birthday, gender, emailAddress);
   }
 
   @Override
@@ -78,24 +72,8 @@ public class Person {
     if (getClass() != obj.getClass())
       return false;
     Person other = (Person) obj;
-    if (birthday == null) {
-      if (other.birthday != null)
-        return false;
-    } else if (!birthday.equals(other.birthday))
-      return false;
-    if (emailAddress == null) {
-      if (other.emailAddress != null)
-        return false;
-    } else if (!emailAddress.equals(other.emailAddress))
-      return false;
-    if (gender != other.gender)
-      return false;
-    if (name == null) {
-      if (other.name != null)
-        return false;
-    } else if (!name.equals(other.name))
-      return false;
-    return true;
+    return Objects.equals(other.name, name) && Objects.equals(other.birthday, birthday)
+        && Objects.equals(other.gender, gender) && Objects.equals(other.emailAddress, emailAddress);
   }
 
   /************************************************************************************************/

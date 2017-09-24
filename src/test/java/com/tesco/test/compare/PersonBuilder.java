@@ -2,10 +2,8 @@ package com.tesco.test.compare;
 
 import java.time.LocalDate;
 
-import com.tesco.test.compare.Person.Sex;
-
 public class PersonBuilder {
-  
+
   private static LocalDate DATENOW = LocalDate.now();
 
   public Person constructPerson(int marker) {
@@ -13,7 +11,7 @@ public class PersonBuilder {
   }
 
   public Person constructPerson(int nameMarker, int ageMarker, int emailMarker) {
-    return new Person("name" + nameMarker, DATENOW.plusYears(ageMarker), Sex.MALE,
+    return new Person("name" + nameMarker, DATENOW.plusYears(ageMarker), Gender.MALE,
         "email" + emailMarker + "@email.com");
   }
 

@@ -14,7 +14,8 @@ public class Sum {
         };
     System.out.println(anon.apply(new Sum(), "1", "4"));
 
-    TriFunction<Sum, String, String, Integer> lambda = (Sum s, String arg1, String arg2) -> s.doSum(arg1, arg2);
+    TriFunction<Sum, String, String, Integer> lambda =
+        (Sum s, String arg1, String arg2) -> s.doSum(arg1, arg2);
     System.out.println(lambda.apply(new Sum(), "1", "44"));
 
     System.out.println("Hello World End!");
