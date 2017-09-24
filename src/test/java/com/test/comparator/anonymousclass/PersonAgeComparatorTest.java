@@ -1,4 +1,4 @@
-package com.tesco.test.compare.anonymousclass;
+package com.test.comparator.anonymousclass;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -10,8 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
-import com.tesco.test.compare.Person;
-import com.tesco.test.compare.PersonBuilder;
+import com.test.comparator.Person;
+import com.test.comparator.PersonBuilder;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class PersonAgeComparatorTest {

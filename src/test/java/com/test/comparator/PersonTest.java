@@ -1,4 +1,4 @@
-package com.tesco.test.compare;
+package com.test.comparator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
+
+import com.test.comparator.Person;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class PersonTest {

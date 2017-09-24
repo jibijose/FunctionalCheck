@@ -1,4 +1,4 @@
-package com.tesco.test.compare;
+package com.test.comparator;
 
 import static java.util.Objects.hash;
 

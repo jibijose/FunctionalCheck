@@ -1,6 +1,9 @@
-package com.tesco.test.compare;
+package com.test.comparator;
 
 import java.time.LocalDate;
+
+import com.test.comparator.Gender;
+import com.test.comparator.Person;
 
 public class PersonBuilder {
 
