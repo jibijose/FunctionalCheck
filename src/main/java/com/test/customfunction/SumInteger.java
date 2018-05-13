@@ -1,6 +1,6 @@
 package com.test.customfunction;
 
-public class Sum implements Operation<Integer> {
+public class SumInteger implements Operation<Integer> {
 
   @Override
   public Integer result(Integer a, Integer b) {
