@@ -6,7 +6,7 @@ import java.util.function.BiPredicate;
 public class CheckMain {
 
   public static void main(String[] args) {
-    List<Integer> myNumList = Arrays.asList(1,66,39,41,465,54,6);
+    List<Integer> myNumList = Arrays.asList(1, 66, 39, 41, 465, 54, 6);
     List<Integer> myNumList50 = findNumbers(myNumList, CheckMain::isMoreThanFifty);
     System.out.println(myNumList50);
   }

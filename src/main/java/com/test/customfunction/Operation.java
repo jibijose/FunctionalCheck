@@ -1,5 +1,5 @@
 package com.test.customfunction;
 
-public interface Operation {
-  public Integer result(String a, String b);
+public interface Operation<T> {
+  public T result(T a, T b);
 }

@@ -31,7 +31,7 @@ public class PersonNameComparatorTest {
     Arrays.sort(persons, (Person a, Person b) -> {
       return Person.compareByName(a, b);
     });
-    
+
     Arrays.sort(persons, Person::compareByName);
 
     Person[] personsSortedByName = personBuilder.constructPersonsSortedByName();

@@ -15,13 +15,13 @@ import com.test.customfunction.TriFunction;
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TriFunctionTest {
 
-  TriFunction<Operation, String, String, Integer> triFunction;
+  TriFunction<Operation<Integer>, Integer, Integer, Integer> triFunction;
 
   @Before
   public void beforeEachTest() {
-    triFunction = new TriFunction<Operation, String, String, Integer>() {
+    triFunction = new TriFunction<Operation<Integer>, Integer, Integer, Integer>() {
       @Override
-      public Integer apply(Operation o, String a, String b) {
+      public Integer apply(Operation<Integer> o, Integer a, Integer b) {
         return o.result(a, b);
       }
     };
@@ -29,12 +29,12 @@ public class TriFunctionTest {
 
   @Test
   public void checkSummation() {
-    assertEquals("Sum should be 80", Integer.valueOf(80), triFunction.apply(new Sum(), "60", "20"));
+    assertEquals("Sum should be 80", Integer.valueOf(80), triFunction.apply(new Sum(), 60, 20));
   }
 
   @Test
   public void checkMultiplication() {
     assertEquals("Multiplication should be 1200", Integer.valueOf(1200),
-        triFunction.apply(new Multiplication(), "60", "20"));
+        triFunction.apply(new Multiplication(), 60, 20));
   }
 }
