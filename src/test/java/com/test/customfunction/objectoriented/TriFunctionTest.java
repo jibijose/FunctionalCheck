@@ -1,15 +1,12 @@
-package com.test.customfunction.anonymousclass;
+package com.test.customfunction.objectoriented;
 
 import static org.junit.Assert.assertEquals;
-
-import java.util.Comparator;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
-import com.test.comparator.Person;
 import com.test.customfunction.Multiplication;
 import com.test.customfunction.Operation;
 import com.test.customfunction.Sum;
@@ -32,21 +29,12 @@ public class TriFunctionTest {
 
   @Test
   public void checkSummation() {
-    assertEquals("Sum should be 80", Integer.valueOf(80), new Operation() {
-      @Override
-      public Integer result(String a, String b) {
-        return Integer.parseInt(a) + Integer.parseInt(b);
-      }
-    }.result("60", "20"));
+    assertEquals("Sum should be 80", Integer.valueOf(80), triFunction.apply(new Sum(), "60", "20"));
   }
 
   @Test
   public void checkMultiplication() {
-    assertEquals("Multiplication should be 1200", Integer.valueOf(1200), new Operation() {
-      @Override
-      public Integer result(String a, String b) {
-        return Integer.parseInt(a) * Integer.parseInt(b);
-      }
-    }.result("60", "20"));
+    assertEquals("Multiplication should be 1200", Integer.valueOf(1200),
+        triFunction.apply(new Multiplication(), "60", "20"));
   }
 }
